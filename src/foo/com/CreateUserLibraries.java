@@ -57,20 +57,36 @@ public class CreateUserLibraries {
 	return null;
     }
 
+    private static String directorySeparator() {
+	String osName = System.getProperty("os.name").toLowerCase();
+	String directorySeparator;
+	if (osName.contains("win")) {
+	    directorySeparator = "\\";
+	} else {
+	    directorySeparator = "/";
+	}
+	return directorySeparator;
+    }
+/**
+ * Fragmento de codigo libre
+ * Javier Abell√°n, 11 Mayo 2006
+ * 
+ * Buscador de ficheros.
+ */
     /**
-     * Busca todos los ficheros que cumplen la m·scara que se le pasa y los mete
+     * Busca todos los ficheros que cumplen la m√°scara que se le pasa y los mete
      * en la listaFicheros que se le pasa.
      * 
      * @param pathInicial
-     *            Path inicial de b˙squeda. Debe ser un directorio que exista y
+     *            Path inicial de b√∫squeda. Debe ser un directorio que exista y
      *            con permisos de lectura.
      * @param mascara
-     *            Una m·scara v·lida para la clase Pattern de java.
+     *            Una m√°scara v√°lida para la clase Pattern de java.
      * @param listaFicheros
-     *            Una lista de ficheros a la que se aÒadir·n los File que
-     *            cumplan la m·scara. No puede ser null. El mÈtodo no la vacÌa.
+     *            Una lista de ficheros a la que se a√±adir√°n los File que
+     *            cumplan la m√°scara. No puede ser null. El m√©todo no la vac√≠a.
      * @param busquedaRecursiva
-     *            Si la b˙squeda debe ser recursiva en todos los subdirectorios
+     *            Si la b√∫squeda debe ser recursiva en todos los subdirectorios
      *            por debajo del pathInicial.
      */
     public static void dameFicheros(String pathInicial, String mascara, LinkedList<File> listaFicheros, boolean busquedaRecursiva) {
@@ -87,12 +103,12 @@ public class CreateUserLibraries {
     }
 
     /**
-     * Se le pasa una m·scara de fichero tÌpica de ficheros con * e ? y devuelve
+     * Se le pasa una m√°scara de fichero t√≠pica de ficheros con * e ? y devuelve
      * la cadena regex que entiende la clase Pattern.
      * 
      * @param mascara
      *            Un String que no sea null.
-     * @return Una m·scara regex v·lida para Pattern.
+     * @return Una m√°scara regex v√°lida para Pattern.
      */
     public static String dameRegex(String mascara) {
 	mascara = mascara.replace(".", "\\.");
@@ -101,14 +117,5 @@ public class CreateUserLibraries {
 	return mascara;
     }
     
-    private static String directorySeparator() {
-	String osName = System.getProperty("os.name").toLowerCase();
-	String directorySeparator;
-	if (osName.contains("win")) {
-	    directorySeparator = "\\";
-	} else {
-	    directorySeparator = "/";
-	}
-	return directorySeparator;
-    }
+
 }
