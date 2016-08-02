@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class CreateUserLibraries {
     public static void main(String[] args) throws IOException {
-	createLib("ePo", "ORION_HOME");
+	createLib("myLibrary", "ENV_VAR");
     }
 
     public static void createLib(String nameLib, String envVar) throws IOException {
